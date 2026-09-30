@@ -76,3 +76,70 @@ padding-top: 25px;
 font-size: 18px;
 color: #666;
 }
+
+.lista-contactos {
+margin-top: 25px;
+min-height: 130px;
+}
+
+.mensaje-vacio {
+text-align: center;
+color: #777;
+font-size: 18px;
+padding-top: 38px;
+}
+
+.contacto {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 16px;
+margin-bottom: 12px;
+border: 1px solid #e2e2e2;
+border-radius: 10px;
+background-color: #fafafa;
+}
+
+.datos-contacto h3 {
+color: #333;
+margin-bottom: 5px;
+}
+
+.datos-contacto p {
+color: #777;
+}
+
+.btn-eliminar {
+width: auto;
+padding: 9px 14px;
+background-color: #d9534f;
+font-size: 14px;
+}
+
+.btn-eliminar:hover {
+background-color: #c9302c;
+}
+
+@media (max-width: 600px) {
+
+```
+.contenedor {
+    padding: 30px 25px;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+.contacto {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.btn-eliminar {
+    width: 100%;
+}
+```
+
+}
