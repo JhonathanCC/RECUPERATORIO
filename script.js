@@ -5,6 +5,7 @@ const telefonoInput = document.getElementById("telefono");
 const btnAgregar = document.getElementById("btnAgregar");
 const listaContactos = document.getElementById("listaContactos");
 const contador = document.getElementById("contador");
+const buscarInput = document.getElementById("buscar");
 
 btnAgregar.addEventListener("click", function () {
 
@@ -30,12 +31,12 @@ telefonoInput.value = "";
 
 });
 
-function mostrarContactos() {
+function mostrarContactos(lista = contactos) {
 
 
 listaContactos.innerHTML = "";
 
-contactos.forEach(function (contacto, indice) {
+lista.forEach(function (contacto) {
 
     const elemento = document.createElement("div");
 
@@ -55,6 +56,8 @@ contactos.forEach(function (contacto, indice) {
     const btnEliminar = elemento.querySelector(".btn-eliminar");
 
     btnEliminar.addEventListener("click", function () {
+
+        const indice = contactos.indexOf(contacto);
 
         contactos.splice(indice, 1);
 
@@ -76,3 +79,18 @@ contador.textContent = contactos.length;
 
 }
 
+buscarInput.addEventListener("input", function () {
+
+
+const textoBusqueda = buscarInput.value.toLowerCase().trim();
+
+const contactosFiltrados = contactos.filter(function (contacto) {
+
+    return contacto.nombre.toLowerCase().includes(textoBusqueda);
+
+});
+
+mostrarContactos(contactosFiltrados);
+
+
+});
