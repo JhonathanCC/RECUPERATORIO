@@ -31,7 +31,8 @@ function mostrarContactos() {
 listaContactos.innerHTML = "";
 
 
-contactos.forEach(function (contacto) {
+contactos.forEach(function (contacto, indice) {
+
     const elemento = document.createElement("div");
 
     elemento.classList.add("contacto");
@@ -41,7 +42,18 @@ contactos.forEach(function (contacto) {
             <h3>${contacto.nombre}</h3>
             <p>${contacto.telefono}</p>
         </div>
+
+        <button class="btn-eliminar">
+            Eliminar
+        </button>
     `;
+
+    const btnEliminar = elemento.querySelector(".btn-eliminar");
+
+    btnEliminar.addEventListener("click", function () {
+        contactos.splice(indice, 1);
+        mostrarContactos();
+    });
 
     listaContactos.appendChild(elemento);
 });
