@@ -4,11 +4,13 @@ const nombreInput = document.getElementById("nombre");
 const telefonoInput = document.getElementById("telefono");
 const btnAgregar = document.getElementById("btnAgregar");
 const listaContactos = document.getElementById("listaContactos");
+const contador = document.getElementById("contador");
 
 btnAgregar.addEventListener("click", function () {
+
+
 const nombre = nombreInput.value.trim();
 const telefono = telefonoInput.value.trim();
-
 
 if (nombre === "" || telefono === "") {
     return;
@@ -20,6 +22,7 @@ contactos.push({
 });
 
 mostrarContactos();
+actualizarContador();
 
 nombreInput.value = "";
 telefonoInput.value = "";
@@ -28,8 +31,9 @@ telefonoInput.value = "";
 });
 
 function mostrarContactos() {
-listaContactos.innerHTML = "";
 
+
+listaContactos.innerHTML = "";
 
 contactos.forEach(function (contacto, indice) {
 
@@ -51,8 +55,11 @@ contactos.forEach(function (contacto, indice) {
     const btnEliminar = elemento.querySelector(".btn-eliminar");
 
     btnEliminar.addEventListener("click", function () {
+
         contactos.splice(indice, 1);
+
         mostrarContactos();
+        actualizarContador();
     });
 
     listaContactos.appendChild(elemento);
@@ -60,3 +67,12 @@ contactos.forEach(function (contacto, indice) {
 
 
 }
+
+function actualizarContador() {
+
+
+contador.textContent = contactos.length;
+
+
+}
+
